@@ -48,6 +48,28 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
+		
+	def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+		if current_user == nil
+			redirect_to signin_url, notice: "Please sign in."
+		else
+	    render 'show_follow'
+		end
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+		if current_user == nil
+      redirect_to signin_url, notice: "Please sign in."
+    else
+	    render 'show_follow'
+		end
+  end
 
 	private
 

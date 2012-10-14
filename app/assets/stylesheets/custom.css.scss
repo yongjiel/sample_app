@@ -120,9 +120,9 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $gray;
     &:first-child {
-      border: 0;
+      border: 10;
       padding-top: 0;
     }
     span {
@@ -183,6 +183,13 @@ input, textarea, select, .uneditable-input {
   }
 }
 
+
+.micropost_form {
+	#micropost_content {
+		rows: 5;
+		width: 300px;
+	}
+}
 /* microposts */
 
 .microposts {
@@ -210,4 +217,31 @@ aside {
     margin-bottom: 5px;
   }
 }
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
 
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
